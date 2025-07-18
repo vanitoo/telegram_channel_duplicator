@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  travel-bot:
+    build: .
+    container_name: travel_channel_bot
+    restart: unless-stopped
+    volumes:
+      - ./config.ini:/app/config.ini:ro
+      - ./analytics.json:/app/analytics.json
+      - ./sessions:/app/sessions
+      - ./travel_channel.log:/app/travel_channel.log
+    environment:
+      - TZ=Europe/Amsterdam
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    # если вы храните ключи в .env, Docker Compose сам подхватит
