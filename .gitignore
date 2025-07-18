@@ -4,5 +4,6 @@ venv/
 __pycache__/
 sessions/
 config.yaml
-*.ini
+config.ini
+config2.ini
 *.log
